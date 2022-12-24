@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,6 @@ import javax.servlet.RequestDispatcher;
 
 import modelo.Socios;
 import modelo.SociosDAO;
-
 //@WebServlet(name = "SociosController", urlPatterns = {"/SociosController"})
 public class SociosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,14 +36,13 @@ public class SociosController extends HttpServlet {
 	    catch(Exception e) {
 	        e.printStackTrace();
 	    }
+	    
 	    String accion;
 	    RequestDispatcher dispatcher=null;
 
 	    
 	    accion = request.getParameter("accion");
 
-		
-		
 		// Vista por primera vez ya que la accion viene como null y sin id
 		if (accion==null||accion.isEmpty()) {
 		    dispatcher=request.getRequestDispatcher("vistas/socios.jsp");
@@ -77,13 +76,24 @@ public class SociosController extends HttpServlet {
 		    sociosDAO.EliminarSocio(id_socio);		    
 		}
 		// formulario para nuevo socio
-		/*else if (accion.equals("nuevo")){
+		else if (accion.equals("nuevo")){
 		    dispatcher=request.getRequestDispatcher("vistas/nuevo.jsp");
-		}*/
+		}
 		
-		
+		// Graba, registra el socio en la bd
 		else if (accion.equals("insert")) {
-		    dispatcher=request.getRequestDispatcher("vistas/nuevo.jsp");
+            String nombre=request.getParameter("nombre");
+            String apellido=request.getParameter("apellido");
+            String direccion=request.getParameter("direccion");
+            String localidad=request.getParameter("localidad");
+            LocalDate fnac=LocalDate.parse(request.getParameter("fnac"));
+            String email=request.getParameter("email");
+            String telefono=request.getParameter("telefono");
+            //instancio un nuevo socio
+            Socios socio=new Socios(0,nombre,apellido,direccion,localidad,fnac,email,telefono,true);
+            sociosDAO.registrarSocio(socio);    // inserto socio en bd
+	            
+            dispatcher=request.getRequestDispatcher("vistas/socios.jsp");  // Vuelve al listado general de socios;
 		}
 		
 		dispatcher.forward(request, response);
