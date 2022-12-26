@@ -8,7 +8,7 @@
   	<servlet-name>SociosController</servlet-name>
   	<display-name>SociosController</display-name>
   	<description></description>
-  	<servlet-class>com.webcac.controlador.SociosController</servlet-class>
+  	<servlet-class>controlador.SociosController</servlet-class>
   </servlet>
   
   <servlet-mapping>

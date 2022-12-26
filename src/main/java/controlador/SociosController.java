@@ -9,38 +9,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import jakarta.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebServlet;
 
 import javax.servlet.RequestDispatcher;
 
 import modelo.Socios;
 import modelo.SociosDAO;
-//@WebServlet(name = "SociosController", urlPatterns = {"/SociosController"})
+
+
+@WebServlet(name = "SociosController", urlPatterns = {"/SociosController"})
 public class SociosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	// Constructor
     public SociosController() {
         super();
+        
     }
 
-    @Override
+    //@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-	    SociosDAO sociosDAO=null;
-	    
-	    try {
+	    SociosDAO sociosDAO;//=null;
 	    sociosDAO = new SociosDAO();
-	    }
-	    catch(Exception e) {
-	        e.printStackTrace();
-	    }
-	    
 	    String accion;
-	    RequestDispatcher dispatcher=null;
+	    RequestDispatcher dispatcher = null;
 
-	    
+
 	    accion = request.getParameter("accion");
 
 		// Vista por primera vez ya que la accion viene como null y sin id
@@ -100,7 +96,7 @@ public class SociosController extends HttpServlet {
 		
 	}
 
-    @Override
+    //@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
