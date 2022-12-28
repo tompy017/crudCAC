@@ -5,15 +5,19 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>SociosController</servlet-name>
-  	<display-name>SociosController</display-name>
-  	<description></description>
-  	<servlet-class>controlador.SociosController</servlet-class>
+    <servlet-name>SociosController</servlet-name>
+    <display-name>SociosController</display-name>
+    <description></description>
+    <servlet-class>controlador.SociosController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>SociosController</servlet-name>
-  	<url-pattern>/SociosController</url-pattern>
+    <servlet-name>SociosController</servlet-name>
+    <url-pattern>/SociosController</url-pattern>
   </servlet-mapping>
+
+<!--  <welcome-file-list> -->
+<!--    <welcome-file>controlador.SociosController</welcome-file>        -->
+<!--    </welcome-file-list> -->
   
 </web-app>

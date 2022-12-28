@@ -25,7 +25,7 @@
     </div>
     
     <div class="d-grid gap-2 p-5 mt-0">
-        <a href="SociosController?accion=nuevo" class="btn btn-outline-dark rounded-4" type="button">Agregar Nuevo Socio</a>
+        <a class="btn btn-outline-dark rounded-4" href="SociosController?accion=nuevo">Agregar Nuevo Socio</a>
 
     </div>
 

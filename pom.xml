@@ -1,4 +1,4 @@
-	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.webcac.app</groupId>
@@ -23,16 +23,39 @@
     </dependency>
     
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-	<dependency>
-	    <groupId>mysql</groupId>
-	    <artifactId>mysql-connector-java</artifactId>
-	    <version>8.0.29</version>
-	</dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.29</version>
+    </dependency>
+    
+    
+    <!-- https://mavenlibs.com/maven/dependency/jakarta.annotation/jakarta.annotation-api -->
+    <dependency>
+        <groupId>jakarta.annotation</groupId>
+        <artifactId>jakarta.annotation-api</artifactId>
+        <version>2.1.1</version>
+    </dependency>
+    
+
+    
     
   </dependencies>
   <build>
     <finalName>webCAC</finalName>
           <plugins>
+          
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.0</version>
+              <configuration>
+                <source>7</source>
+                <target>7</target>
+              </configuration>
+            </plugin>
+          
+          
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
